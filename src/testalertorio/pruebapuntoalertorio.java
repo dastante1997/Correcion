@@ -21,38 +21,38 @@ public class pruebapuntoalertorio {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
     public static void generarMovimientoalertorio(int n, puntoalertorio punto[]) {
-        String direccion = "";
-        int x = 0;
-        int y = 0;
+        String sentido = "";
+        int a = 0;
+        int b = 0;
         int i = 0;
         int valor = 0;
-        punto[0] = new puntoalertorio(x, y);
+        punto[0] = new puntoalertorio(a, b);
         for (i = 1; i < n+1; i++) {
-            System.out.println("Ingrese numero cualquiera: " + i + ":");
+            System.out.println("Ingrese el movimientos: " + i + ":");
             valor = datos.nextInt();
-            direccion = trayectoria();
+            sentido = trayectoria();
             //System.out.println(direccion);
-            if (direccion == "Izquierda") {
-                x = punto[i-1].getX();
-                x = x-valor;
+            if (sentido == "Izquierda") {
+                a = punto[i-1].getX();
+                a = a-valor;
             }
-            else if (direccion == "Derecha") {
-                x = punto[i-1].getX();
-                x= x+valor;
+            else if (sentido== "Derecha") {
+                a = punto[i-1].getX();
+                a= a+valor;
             }
 
-            else if (direccion == "Arriba") {
-                y = punto[i-1].getY() ;
-                y = y+valor;
+            else if (sentido== "Arriba") {
+                b = punto[i-1].getY() ;
+                b = b+valor;
             }
-            if (direccion == "Abajo") {
-                y = punto[i-1].getY();
-                y = y-valor;
+            if (sentido == "Abajo") {
+                b = punto[i-1].getY();
+                b = b-valor;
             }
             
-            punto[i] = new puntoalertorio(x, y);
-            System.out.println("Direccion: "+ direccion);
-            System.out.println("Coordenadas: " + x +" "+ y);        
+            punto[i] = new puntoalertorio(a, b);
+            System.out.println("trayectoria: "+ sentido);
+            System.out.println("Coordenada: " + a +" "+ b);        
         }
     }
  
@@ -66,15 +66,15 @@ public class pruebapuntoalertorio {
    
 
     public static void distanciaRecorrida(int n, puntoalertorio punto[]){
-          int recorridox=0;
-        int recorridoy=0;
+          int recorridoa=0;
+        int recorridob=0;
         double dtotal=0;
         for (int i =0; i < n; i++) {
-            recorridox = punto[i+1].getX()-punto[i].getX();
-            double recorridoxf = Math.pow(recorridox, 2);
-            recorridoy = punto[i+1].getY()-punto[i].getY();
-            double recorridoyf = Math.pow(recorridoy, 2);      
-            dtotal = dtotal + Math.sqrt(recorridoxf + recorridoyf);
+            recorridoa = punto[i+1].getX()-punto[i].getX();
+            double recorridoaf = Math.pow(recorridoa, 2);
+            recorridob = punto[i+1].getY()-punto[i].getY();
+            double recorridobf = Math.pow(recorridob, 2);      
+            dtotal = dtotal + Math.sqrt(recorridoaf + recorridobf);
        }
        System.out.println("La trayectoria del punto es: " + dtotal);
     
